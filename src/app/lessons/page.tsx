@@ -1,18 +1,23 @@
+import Link from "next/link";
+
 const lessons = [
   {
     id: 1,
+    slug: "alphabet-basics",
     title: "Alphabet Basics",
     description: "Learn the first few hand signs in the Filipino Sign Language alphabet.",
     level: "Beginner",
   },
   {
     id: 2,
+    slug: "greetings",
     title: "Greetings",
     description: "Practice common greetings used in daily conversation.",
     level: "Beginner",
   },
   {
     id: 3,
+    slug: "daily-words",
     title: "Daily Words",
     description: "Learn useful signs for everyday communication.",
     level: "Beginner",
@@ -30,14 +35,15 @@ export default function LessonsPage() {
 
         <div className="grid gap-4 md:grid-cols-2">
           {lessons.map((lesson) => (
-            <div
+            <Link
               key={lesson.id}
-              className="rounded-2xl border border-slate-800 bg-slate-900 p-6"
+              href={`/lessons/${lesson.slug}`}
+              className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition hover:border-slate-700 hover:bg-slate-900/80"
             >
               <p className="text-sm text-slate-400 mb-2">{lesson.level}</p>
               <h2 className="text-xl font-semibold mb-2">{lesson.title}</h2>
               <p className="text-slate-300">{lesson.description}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
