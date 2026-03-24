@@ -1,28 +1,5 @@
 import Link from "next/link";
-
-const lessons = [
-  {
-    id: 1,
-    slug: "alphabet-basics",
-    title: "Alphabet Basics",
-    description: "Learn the first few hand signs in the Filipino Sign Language alphabet.",
-    level: "Beginner",
-  },
-  {
-    id: 2,
-    slug: "greetings",
-    title: "Greetings",
-    description: "Practice common greetings used in daily conversation.",
-    level: "Beginner",
-  },
-  {
-    id: 3,
-    slug: "daily-words",
-    title: "Daily Words",
-    description: "Learn useful signs for everyday communication.",
-    level: "Beginner",
-  },
-];
+import { lessons } from "@/data/lessons";
 
 export default function LessonsPage() {
   return (
@@ -36,7 +13,7 @@ export default function LessonsPage() {
         <div className="grid gap-4 md:grid-cols-2">
           {lessons.map((lesson) => (
             <Link
-              key={lesson.id}
+              key={lesson.slug}
               href={`/lessons/${lesson.slug}`}
               className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition hover:border-slate-700 hover:bg-slate-900/80"
             >
